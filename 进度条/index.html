@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bootstrap飞机跑道进度条动画特效 - 站长素材</title>
+<link rel="stylesheet" href="css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<script>
+	
+	onload = function(){
+		var list = document.getElementsByClassName("progress-bar");
+		
+		//var spans = document.getElementsByTagName("span");
+		
+		//console.log(list[0].getElementsByTagName("span"));
+		
+		
+		var _w1 = 0;
+		var span1 = list[0].getElementsByTagName("span")[0];
+		var t1 = setInterval(function(){
+			list[0].style.width = ++_w1+"%";
+			span1.innerHTML = _w1+"%";
+			if(_w1 == 100){
+				clearInterval(t1);
+			}
+			
+			
+		}, 50);
+		
+		var _w2 = 0;
+		var span2 = list[1].getElementsByTagName("span")[0];
+		var t2 = setInterval(function(){
+			list[1].style.width = ++_w2+"%";
+			span2.innerHTML = _w2+"%";
+			if(_w2 == 100){
+				clearInterval(t2);
+			}
+		}, 100);
+		
+		var _w3 = 0;
+		var span3 = list[2].getElementsByTagName("span")[0];
+		var t3 = setInterval(function(){
+			list[2].style.width = ++_w3+"%";
+			span3.innerHTML = _w3+"%";
+			if(_w3 == 100){
+				clearInterval(t3);
+			}
+		}, 30);
+	}
+</script>
+<div class="container">
+	<div class="progress">
+		<div class="progress-bar" style="width: 55%; background:#005394;">
+			<span>55%</span>
+		</div>
+	</div>
+
+	<div class="progress">
+		<div class="progress-bar" style="width: 100%; background:#d9534f;">
+			<span>100%</span>
+		</div>
+	</div>
+
+	<div class="progress">
+		<div class="progress-bar" style="width: 40%; background:#f0ad4e;">
+			<span>40%</span>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

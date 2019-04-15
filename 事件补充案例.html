@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        * {    margin: 0;padding: 0;}
+        html,body {    width: 100%;height: 100%;}
+        #box { width: 100%; height: 100%; overflow: hidden; }
+        .ball { width: 100%; height: 500px; }
+        #scroll {
+            width: 9px; height: 96%;
+            position: fixed; top: 2%; right: 5px;
+            border-radius: 5px; background-color: rgba(235, 233, 233, 0.5);
+            z-index: 9998; 
+        }
+        #scrollBar {
+            position: absolute; z-index: 9999;
+            width: 9px; height: 20px;
+            border-radius: 5px;
+            left: 0; top: 0; background-color: #383838;
+        }
+    </style>
+</head>
+<body style="overflow:hidden;">
+    <div id="box">
+        <div id="content">
+            <p class="ball" style="background-color:red;">111111111</p>
+            <p class="ball" style="background-color:blue;">22222222</p>
+            <p class="ball" style="background-color:yellow;">3333333</p>
+            <p class="ball" style="background-color:red;">444444444</p>
+            <p class="ball" style="background-color:blue;">5555555555</p>
+            <p class="ball" style="background-color:yellow;">666666666</p>
+        </div>
+    </div>
+    <div id="scroll">
+        <div id="scrollBar"></div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var content = document.getElementById("content");
+    var box = document.getElementById("box");
+    var scroll = document.getElementById("scroll");
+    var scrollBar = document.getElementById("scrollBar");
+	var delta = 30;
+	
+	window.onresize = function(){
+		init();
+	}
+	
+	function init(){
+		//浏览器的可视窗口高度/页面的整体高度*滚动条的高度 == 滚动按钮的高度
+		var _height = window.innerHeight*scroll.offsetHeight/content.offsetHeight;
+		scrollBar.style.height = _height + "px";
+	}
+	
+	init();
+	
+	//非火狐
+	box.addEventListener("mousewheel", function(e){
+		console.log(e.wheelDelta);
+		if(e.wheelDelta > 0) { //向上滚动
+			box.scrollTop -= delta;
+		} else { //向下滚动
+			box.scrollTop += delta;
+		}
+		
+		//滚动距离/（页面的整体高度-浏览器的可视窗口高度） * （滚动条的高度-滚动按钮的高度） == 滚动按钮.top 
+		var _top = box.scrollTop * (scroll.offsetHeight-scrollBar.offsetHeight) / (content.offsetHeight-window.innerHeight);
+		scrollBar.style.top = _top + "px";
+	})
+	
+	//火狐
+	box.addEventListener("DOMMouseScroll", function(e){
+		console.log(e.detail);
+		if(e.detail > 0) { //向下滚动
+			box.scrollTop += delta;
+		} else { //向上滚动
+ 			box.scrollTop -= delta;
+		}
+		
+		//滚动距离/（页面的整体高度-浏览器的可视窗口高度） * （滚动条的高度-滚动按钮的高度） == 滚动按钮.top 
+		var _top = box.scrollTop * (scroll.offsetHeight-scrollBar.offsetHeight) / (content.offsetHeight-window.innerHeight);
+		scrollBar.style.top = _top + "px";
+	})
+</script>

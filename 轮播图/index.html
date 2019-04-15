@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+		<title> </title>	
+		
+    </head>
+    <style>
+		* {
+			padding: 0; margin: 0;
+		}
+		#box {
+			margin: auto;
+			width: 810px; height: 320px;
+			overflow: hidden;
+			position: relative;
+		}
+		ul.imgs {
+			list-style: none;
+			width: 4050px;
+			overflow: hidden;
+			position: absolute;
+			left: 0; top: 0;
+		}
+		ul.imgs li {
+			float: left;
+		}
+		
+		ul.nav {
+			list-style: none;
+			position: absolute;
+			right: 50px; bottom: 20px;
+		}
+		ul.nav li{
+			float: left;
+			width: 15px; height: 15px;
+			border-radius: 50%;
+			background: rgba(0,0,0,0.7);
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		ul.nav li.active {
+			background: white;
+		}
+		
+		.leftBtn {
+			width: 60px; height: 60px;
+			background: url(btn.gif);
+			position: absolute;
+			left: 20px; top: 120px;
+			cursor: pointer;
+
+		}
+		.rightBtn {
+			width: 60px; height: 60px;
+			background: url(btn.gif) 0 -60px;
+			position: absolute;
+			right: 20px; top: 120px;
+			cursor: pointer;
+
+		}
+    </style>
+	<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/animate.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">  
+		onload  = function(){
+			
+			var oUL = document.getElementById("box").children[0];
+			var navs = document.getElementsByClassName("nav")[0].children;
+			var leftBtn  = document.getElementById("leftBtn");
+			var rightBtn = document.getElementById("rightBtn");
+			
+			var index = 0;
+			function scrollImg(){
+				++index;
+				
+				for(var i=0; i<navs.length; i++) {
+					navs[i].className = "";
+				}
+				navs[index==4?0:index].className = "active";
+				
+				animate(oUL, {left: -810*index}, function(){
+					//判断如果当前已经切换到第5张图片, 瞬间切回第一张
+					if(index == 4) {
+						oUL.style.left = 0;
+						index = 0;
+					}
+				})
+			}
+			var timer = setInterval(scrollImg, 3000);
+			
+			box.onmouseenter = function(){
+				clearInterval(timer);
+			}
+			box.onmouseleave = function(){
+				timer = setInterval(scrollImg, 3000);
+			}
+			
+			for(var i=0; i<navs.length; i++) {
+				navs[i].num = i;
+				navs[i].onclick = function(){
+					index = this.num-1;
+					scrollImg();
+				}
+			}
+			
+			leftBtn.onclick = function(){
+				index -= 2;
+				scrollImg();
+			}
+			rightBtn.onclick = function(){
+				scrollImg();
+			}
+			
+		}
+    </script>
+	<body>
+        <div id="box">
+			<ul class="imgs">
+				<li>
+					<img src="001.jpg" >
+				</li>
+				<li>
+					<img src="002.jpg" >
+				</li>
+				<li>
+					<img src="003.jpg" >
+				</li>
+				<li>
+					<img src="004.jpg" >
+				</li>
+				<li>
+					<img src="001.jpg" >
+				</li>
+			</ul>
+			
+			<ul class="nav">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			
+			<div id="leftBtn" class="leftBtn"></div>
+			<div id="rightBtn" class="rightBtn"></div>
+		</div>
+	</body>
+</html>

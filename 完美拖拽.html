@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>完美拖拽</title>
+	<style type="text/css">
+		html,body{overflow:hidden;}
+		body,div,h2,p{margin:0;padding:0;}
+		body{color:#fff;background:#000;font:12px/2 Arial;}
+		p{padding:0 10px;margin-top:10px;}
+		span{color:#ff0;padding-left:5px;}
+		#box{position:absolute;width:300px;height:150px;background:#333;border:2px solid #ccc;top:50%;left:50%;margin:-75px 0 0 -150px;}
+		#box h2{height:25px;cursor:move;background:#222;border-bottom:2px solid #ccc;text-align:right;padding:0 10px;}
+		#box h2 a{color:#fff;font:12px/25px Arial;text-decoration:none;outline:none;}
+	</style>
+	<script type="text/javascript">
+		
+	window.onload=function(){
+		var box = document.getElementById("box");
+		var oTitle = box.getElementsByTagName("h2")[0];
+		var review = oTitle.children[0];
+		
+		var pos;  //为了move函数可以pos坐标,将pos设置为“全局”变量
+		
+		var posArray = []; //定义一个空数组,用来存放移动轨迹的坐标
+		
+		//为了能够清除mousemove事件, 把函数move单独拿了出来
+		function move(e){
+			box.style.left = e.clientX-pos.x + "px";
+			box.style.top = e.clientY-pos.y + "px";
+			posArray.push({
+				left : box.style.left,
+				top : box.style.top
+			})
+		}
+		
+		oTitle.addEventListener("mousedown", function(e){
+			pos = {
+				x : e.offsetX,
+				y : e.offsetY
+			}
+			document.addEventListener("mousemove", move);
+		});
+		
+		document.addEventListener("mouseup", function(){
+			//清除鼠标移动事件
+			document.removeEventListener("mousemove", move)
+		})
+		
+		//单击回放
+		review.addEventListener("click", function(){
+			var timer = setInterval(function(){
+				console.log(pos.x,pos.y);
+				current = posArray.pop(); //从移动轨迹中删除并取出最后一个坐标
+				if(!current) {
+					clearInterval(timer);
+					return;
+				}
+				box.style.left = current.left;
+				box.style.top = current.top;
+			}, 50);
+		})
+	};
+	</script>
+</head>
+<body>
+<div id="box" style="margin-left: 0px; margin-top: 0px; left: 533px; top: 231px;">
+    <h2><a href="javascript:;">点击回放拖动轨迹</a></h2>
+    <p><strong>Drag:</strong><span class="isdrag">false</span></p>
+    <p><strong>offsetTop:</strong><span class="posx">231</span></p>
+    <p><strong>offsetLeft:</strong><span class="posy">533</span></p>
+</div>
+	
+
+</body></html>

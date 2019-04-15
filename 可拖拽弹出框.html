@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title></title>
+	</head>
+	<style>
+		html,body{
+			width: 100%;
+			height: 100%;
+			padding: 0px;
+			margin: 0px;
+		}
+		.cover{
+			position: fixed;
+			width:100%;
+			height: 100%;
+			background: #B6BBC0;
+			padding: 0px;
+			margin: 0px;
+		}
+		.layer{
+			text-align:center;
+			position: absolute;
+			left: 0; top: 0; right: 0; bottom: 0;
+			margin: auto;	
+			width:500px;
+			height: 300px;
+			background: cornflowerblue;
+		}
+		.title{
+			text-align:center;
+			height: 30px;
+			background: #006666;
+			cursor: move;
+		}
+		.closeBtn{
+			position: absolute;
+			bottom: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oTitle = document.getElementsByClassName("title")[0];
+			var layer = document.getElementsByClassName("layer")[0];
+			
+			oTitle.onmousedown = function(e){
+				var e = e || event;
+				var mousePos = { x: e.offsetX, y: e.offsetY}
+				//onmousemove
+				document.onmousemove = function(e){
+					layer.style.margin = 0;
+					var e = e || event;
+					var _left = e.clientX - mousePos.x;
+					var _top = e.clientY - mousePos.y;
+					layer.style.left = Math.max(0, Math.min(_left, window.innerWidth-layer.offsetWidth)) + "px";
+					layer.style.top =  Math.max(0, Math.min(_top, window.innerHeight-layer.offsetHeight)) + "px";
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			}
+		}
+		
+		function closeLayer(){
+			var cover = document.getElementsByClassName("cover")[0];
+			cover.style.display = "none";
+		}
+	</script>
+	<body>
+		<div class="cover">
+			<div class="layer">
+				<div class="title">窗口标题</div>
+				<button class="closeBtn" onclick="closeLayer()">关闭</button>
+			</div>			
+		</div>
+
+	</body>
+</html>

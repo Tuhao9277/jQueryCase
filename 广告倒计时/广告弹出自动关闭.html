@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>广告自动关闭</title>	
+	</head>
+	<style>
+		.tip{
+			margin: 10px auto;
+			height: 80px;
+			background: url('ad.jpg');
+			position: relative;
+		}
+		.tip a {
+			display: block;
+			width: 20px; height: 20px;
+			border-radius: 50%;
+			background: rgba(0,0,0,0.5);
+			text-align: center; line-height: 20px;
+			font-size: 16px; color: white;
+			right: 10px;
+			top: 5px;
+			position: absolute;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var tip = document.getElementById("ad");
+			var second = document.getElementById("sec");
+			
+			var t = setInterval(function(){
+				second.innerHTML -= 1;
+				if(second.innerHTML == 0){
+					clearInterval(t);
+					tip.style.display = "none";
+				}
+			}, 1000);
+		}
+	</script>
+	<body>
+		<div id="ad" class="tip">
+			<a><span id="sec">5</span>s</a>
+		</div>
+	</body>
+</html>

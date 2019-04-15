@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../../css/font/iconfont.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 350px;
+            height: 600px;
+            background: #000000;
+            border: 5px solid red;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #box div {
+            position: absolute;
+            right: 50px;
+            bottom: -50px;
+			color:white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+	</div>
+</body>
+<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	var box = document.getElementById("box");
+    document.onclick = function(){
+        new Star().init();
+    }
+	
+	function Star(){
+		this.init = function(){
+			this.el = document.createElement("div");
+			this.el.className = "iconfont icon-zan";
+			this.el.style.fontSize = randomInt(12, 40) +"px";
+			this.el.style.color = randomColor();
+			box.appendChild(this.el);
+			this.floot();
+		}
+		this.floot = function(){
+			var startRight = 50; 
+			var startBottom = -50;
+			var x = 0;
+			var range = randomInt(2,60);
+			this.timer = setInterval(function(){
+				y = range*Math.sin( Math.PI/180 * x );
+				this.right( y + startRight );
+				this.bottom( x + startBottom );
+				this.opacity( 1 - x/600 );
+				if(x >= 600) this.destroy();
+				x+=3;
+			}.bind(this), randomInt(10, 50));
+		}
+		this.opacity = function(val){
+			if(val) this.el.style.opacity = val;
+		}
+		this.right = function(val){
+			if(val) this.el.style.right = val + "px";
+		}
+		this.bottom = function(val){
+			if(val) this.el.style.bottom = val + "px";
+		}
+		this.destroy = function(){
+			clearInterval(this.timer);
+			this.el.remove();
+		}
+	}
+</script>
+
+</html>

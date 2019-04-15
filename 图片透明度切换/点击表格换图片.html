@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+		<title>点击表格切换图片 </title>	
+		
+    </head>
+    <style>
+        .td-class{
+            width:20px;
+            height: 20px;
+        }
+		td.active {
+			background: orange;
+		}
+		img.showImg {
+			opacity: 0;
+			position: absolute;
+		}
+    </style>
+	<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">  
+		window.onload = function(){
+			var countIndex = 0;
+			var tab = document.getElementById("tab");
+			var tds = tab.children[0].children[0].children;
+			var imgs = document.getElementsByClassName("showImg");
+			tab.onclick = function(e){
+				if(e.target.tagName == "TD") {
+					for(var i=0; i<4; i++){
+						e.target.parentNode.children[i].className="td-class";
+					}
+					e.target.className = "td-class active";
+					var index = e.target.getAttribute("index");
+					countIndex = index;
+					//找到对应的图片,显示出来
+					fadeIn(imgs[index] )
+					
+					for(var i=0; i<4; i++) {
+						if(i!=index) fadeOut(imgs[i]);
+					}
+				}
+			};
+			
+			setInterval(function(){
+				tds[++countIndex%4].click();
+			},3000);
+		}
+		
+		function fadeIn(ele, callback) {
+			var val = Number(getStyle(ele).opacity);
+			clearInterval(ele.timer);
+			ele.timer = setInterval(function(){
+				val += 0.04;
+				ele.style.opacity = val;
+				if(val >= 1) {
+					clearInterval(ele.timer);
+					callback?callback():"";
+				}
+			},30);
+		}
+		
+		function fadeOut(ele, callback){
+			var val = Number(getStyle(ele).opacity);
+			clearInterval(ele.timer);
+			ele.timer = setInterval(function(){
+				val -= 0.04;
+				ele.style.opacity = val;
+				if(val <= 0) {
+					clearInterval(ele.timer);
+					callback?callback():"";
+				}
+			},30);
+		}
+    </script>
+	<body>
+        <table id="tab" border="1">
+            <tr>
+                <td index=0 class="td-class"></td>
+                <td index=1 class="td-class"></td>
+                <td index=2 class="td-class"></td>
+                <td index=3 class="td-class"></td>
+            </tr>
+        </table>
+		<div style="position: relative;">
+			<img class="showImg" src="001.jpg" style="width:300px"/>
+			<img class="showImg" src="002.jpg" style="width:300px"/>
+			<img class="showImg" src="003.jpg" style="width:300px"/>
+			<img class="showImg" src="004.jpg" style="width:300px"/>
+        </div>
+	</body>
+</html>

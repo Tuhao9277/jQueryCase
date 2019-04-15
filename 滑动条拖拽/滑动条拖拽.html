@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html charset="UTF-8">
+<head>
+<title>用户评分代码</title>
+
+<link rel="stylesheet" href="bootstrap.css">
+</head>
+<style>
+	.container{
+		margin-top: 50px;
+	}
+	.container .unit{
+		margin-top: 30px;
+	}
+	
+	.progress-title{
+		display: block;
+		width: 25px;
+		height: 25px;
+		line-height: 25px;
+		border: 1px solid #eee;
+	}
+	.progress-dragbtn{
+		position: absolute;
+		left: 0; top: 0;
+		margin-left: 16px;
+		margin-top: -5px;
+		width:15px;
+		height: 30px;
+		background: #3879D9;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+</style>
+<body>
+<script>
+	
+</script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>创意</span>-你觉得这个创意在外观上优秀吗？<i>分数越高表示越优秀。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>外观</span>-你觉得这个创意在外观上优秀吗？<i>分数越高表示越优秀。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>成本</span>-你觉得这个创意在成本上优秀吗？<i>分数越高表示越优秀。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>难度</span>-你觉得这个创意在难度上可行吗？<i>分数越高表示越可行。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>环保</span>-你觉得这个创意在环保上优秀吗？<i>分数越高表示越优秀。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var progreses = Array.from(document.getElementsByClassName("progress"));
+	
+	for(var i in progreses){
+		progreses[i].children[1].onmousedown = function(e){
+			var that = this;
+			var e = e || event;
+			var mousePos = {x:e.offsetX, y:e.offsetY};
+			document.onmousemove = function(e){
+				var e = e || event;
+				var _left = e.clientX - getPagePosition(that.parentNode).pageX - mousePos.x;
+				_left = section(_left, 0, that.parentNode.offsetWidth-that.offsetWidth);
+				
+				that.style.left = _left + "px";
+				
+				//通过that来获取progressBar
+				var progressBar = that.parentNode.children[0];
+				progressBar.style.width = _left + "px";
+				
+				//计算百分比
+				var percent = parseInt( _left/(that.parentNode.offsetWidth-that.offsetWidth) * 100 );
+				progressBar.innerText = percent + "%";
+				
+				var progressTitle = that.parentNode.parentNode.parentNode.children[0].children[0];
+				progressTitle.innerText = percent;
+			}
+		}
+	}
+	document.onmouseup = function(){
+		document.onmousemove = "";
+	}
+</script>
+
+</body></html>

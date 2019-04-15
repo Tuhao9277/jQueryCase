@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.verify {
+				position: fixed;
+				top: 400px;
+				left: 50%;
+				width: 300px;
+				margin-left: -150px;
+			}
+			.verify .verify-img {
+				display: none;
+				position: absolute;
+				top: -160px;
+				left: -15px;
+				width: 100%;
+				height: 160px;
+				background: url(img/verify-bg.png) no-repeat;
+			}
+			.verify .verify-img .verify-slice {
+				position: absolute;
+				top: 38px;
+				left: 20px;
+				width: 52px;
+				height: 50px;
+				background: url(img/verify-slice.png) no-repeat;
+			}
+			.verify .verify-main {
+				position: relative;
+				width: 260px;
+				height: 25px;
+				border: 1px solid #333;
+				border-radius: 13px;
+				text-indent: 60px;
+				font-size: 12px;
+				line-height: 25px;
+				font-family: "微软雅黑";
+				background-color: #ccc;
+			}
+			.verify .verify-main .verify-move {
+				position: absolute;
+				top: -9px;
+				left: 0px;
+				width: 44px;
+				height: 42px;
+				background: url(img/icon.png) no-repeat;
+				background-position: 0 -85px;
+				cursor: pointer;
+			}
+			.verify .verify-main .verify-move.move {
+				background-position: 0 -217px;
+			}
+			.verify .verify-main .verify-status {
+				position: absolute;
+				right: 0;
+				width: 45px;
+				height: 45px;
+				background: url(img/icon.png) no-repeat;
+				background-position: 0 -85px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="verify">
+			<div class="verify-img">
+				<div class="verify-slice"></div>
+			</div>
+			<div class="verify-main">
+				<div class="verify-move"></div>
+				<div class="verify-tip">按住左边滑块，拖动完成上方拼图</div>
+			</div>
+			<div class="verify-status"></div>
+		</div>
+		
+		<script src="js/jquery.1.11.3.min.js" ></script>
+		<script src="js/index.js"></script>
+	</body>
+</html>

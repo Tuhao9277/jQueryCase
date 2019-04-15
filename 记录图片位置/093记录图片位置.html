@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<script src="cookie.js"></script>
+<script src="../../js/drag.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	onload = function(){
+		var p = document.getElementById("photo");
+		
+		p.style.left = (!getCookie("left") ? 0 : getCookie("left")) + "px";
+		p.style.top =  (!getCookie("top") ? 0 : getCookie("top")) + "px";
+		/*
+		draggable2(p, null, function(){
+			//记录图片的位置
+			setCookie("left", p.offsetLeft, 7*24*3600, "/");
+			setCookie("top", p.offsetTop, 7*24*3600, "/");
+		});
+		*/
+	   moveEle({
+		   target : p,
+		   ranger : document.getElementById("fahter"),
+		   moving : function(x, y) {
+		   },
+		   end : function(){
+			   console.log("拖拽结束")
+		   }
+	   })
+		
+	}
+</script>
+</head>
+	
+<body>	
+<div id="fahter" style="width: 800px; height: 600px; background: #008B8B; margin: 50px;">
+	
+	<div id="photo" style="position:absolute; left:0; top:0; padding:5px; background:#ccc; border-radius:5px; box-shadow:0 0 5px #111">
+		<img src="201604172240101f2eb.jpg" width=400 />
+		<div style="position:absolute; left:5px; top:5px; width:400px; height:273px; background:rgba(255,255,255,0.0)"></div>
+	</div>
+
+</div>
+</body>
+</html>

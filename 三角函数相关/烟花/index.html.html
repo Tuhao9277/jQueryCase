@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>烟花</title>
+        <script src="js/animation.js" charset="utf-8"></script>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #box{
+                width:800px;
+                height:600px;
+                position: relative;
+                margin: 100px auto;
+                background:#000000;
+                border:2px solid red;
+                overflow: hidden;
+            }
+            .ball{
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+    </body>
+    <script type="text/javascript">
+        var box = document.getElementById('box');
+        box.onclick = create;
+
+        function create(event){
+            var e = event||window.event;
+            var mouX = e.offsetX;
+            var mouY = e.offsetY;
+            var a = Math.random()*200+100;
+            for(var i = 0;i < 20;i++){
+                var ball = document.createElement('div');
+                ball.d = 18*i;
+                var r = Math.floor(Math.random()*255);
+                var g = Math.floor(Math.random()*255);
+                var b = Math.floor(Math.random()*255);
+                ball.style.background = 'rgb('+ r + ',' + g +  ','+ b + ')';
+                ball.style.left = mouX + 'px';
+                ball.style.bottom = 0 + 'px';
+                ball.className = 'ball';
+                box.appendChild(ball);
+                    animation(ball,{bottom:600-mouY},1000,function(){
+
+                        animation(this,{
+                            left:(Math.cos(this.d*Math.PI/180)*a)+ mouX,
+                            bottom:(Math.sin(this.d*Math.PI/180)*a)+ (600-mouY),
+                            opacity:0
+                        },2000,function(){
+                            box.removeChild(this)
+                        })
+                    })
+            }
+        }
+    </script>
+</html>
