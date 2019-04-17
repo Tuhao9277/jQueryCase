@@ -1,8 +1,9 @@
 <!DOCTYPE>
 <html>
+
 <head>
-<meta charset="utf-8" />
-<title>无标题文档</title>
+	<meta charset="utf-8" />
+	<title>无标题文档</title>
 
 </head>
 
@@ -19,33 +20,24 @@
 		秒
 	</div>
 </body>
-
+<script src="common.js"></script>
 <script type="text/javascript">
-	var imgs = document.getElementsByTagName("img");
-	
-	console.log(imgs);
-	
-	setInterval(function(){
-		var now = new Date(); //获取当前时间
-		var h = now.getHours();  //小时
-		var m = now.getMinutes(); //分钟
-		var s = now.getSeconds(); //秒
-		
-		//不足两位的前面补0，并转为字符串类型
-		h = h<10?"0"+h:h+"";  
-		m = m<10?"0"+m:m+"";
-		s = s<10?"0"+s:s+"";
-		
-		console.log(h , m , s);
-		
-		imgs[0].src = "img/" + h[0] + ".png";
-		imgs[1].src = "img/" + h[1] + ".png";
-		
-		imgs[2].src = "img/" + m[0] + ".png";
-		imgs[3].src = "img/" + m[1] + ".png";
-		
-		imgs[4].src = "img/" + s[0] + ".png";
-		imgs[5].src = "img/" + s[1] + ".png";
-	},1000);
+
+	function timeView() {
+		var now = new Date(),
+			hour = addZero(now.getHours()),
+			min = addZero(now.getMinutes()),
+			sec = addZero(now.getSeconds());
+		var imgs = div.children;
+		imgs[0].src = "img/" + hour[0] + ".png";
+		imgs[1].src = "img/" + hour[1] + ".png";
+		imgs[2].src = "img/" + min[0] + ".png";
+		imgs[3].src = "img/" + min[1] + ".png";
+		imgs[4].src = "img/" + sec[0] + ".png";
+		imgs[5].src = "img/" + sec[1] + ".png";
+	}
+	timeView();
+	setInterval(timeView, 1000);
 </script>
+
 </html>

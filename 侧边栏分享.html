@@ -1,45 +1,65 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" />
-<title>无标题文档</title>
-<style type="text/css">
-#div1{width:150px; height:100px; position:absolute; top:40%; left:-150px; background:#9CF;}
-#div1 span{width:20px; position:absolute; top:15px; left:150px; background:#9C9;}
+	<meta charset="utf-8" />
+	<title>无标题文档</title>
+	<style type="text/css">
+		#div1 {
+			width: 150px;
+			height: 100px;
+			position: absolute;
+			top: 40%;
+			left: -150px;
+			background: #9CF;
+		}
 
-</style>
+		#div1 span {
+			width: 20px;
+			position: absolute;
+			top: 15px;
+			left: 150px;
+			background: #9C9;
+		}
+	</style>
 
-<script type="text/javascript">
-window.onload=function(){
-	var box = document.getElementById("div1");
-	var oSpan = box.children[0];
-	oSpan.onmouseenter = function(){
-		clearInterval(box.timer);
-		box.timer = setInterval(function(){
-			box.style.left = box.offsetLeft + 4 + "px";
-			if(box.offsetLeft >= 0) {
-				box.style.left = 0;
-				clearInterval(box.timer);
+	<script type="text/javascript">
+		window.onload = function () {
+			var box = document.getElementById("div1");
+			var oSpan = box.children[0];
+			oSpan.onmouseenter = function () {
+				startMove(0);
 			}
-		}, 30);
-	}
-	
-	box.onmouseleave = function(){
-		clearInterval(box.timer);
-		box.timer = setInterval(function(){
-			box.style.left = box.offsetLeft - 4 + "px";
-			if(box.offsetLeft <= -150) {
-				box.style.left = "-150px";
+
+			function startMove(iTarget) {
 				clearInterval(box.timer);
+		
+				box.timer = setInterval(function () {
+					var speed = 0;
+					if (box.offsetLeft > iTarget) {
+						speed = -10;
+					} else {
+						speed = 10;
+					}
+					
+					if (box.offsetLeft == iTarget) {
+						
+						clearInterval(box.timer);
+					}else{
+						box.style.left = box.offsetLeft + speed + "px";
+					}
+				}, 30);
 			}
-		}, 30);
-	}
-}
-</script>
+
+			box.onmouseleave = function () {
+				startMove(-150);
+			}
+		}
+	</script>
 </head>
 
 <body>
-<div id="div1"><span >分享到</span></div>
+	<div id="div1"><span>分享到</span></div>
 </body>
+
 </html>
- 
