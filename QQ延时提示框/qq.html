@@ -50,33 +50,34 @@
         }
     </style>
     <script type="text/javascript">
-        /*
-        window.onload=function(){
-            var isIn = false; //鼠标是否在info当中
-            var avatar = document.getElementById("head");
-            var info = document.getElementById("right");
-            avatar.onmouseover = function(){
-                setTimeout(function(){
-                    info.style.display = "block";
-                },500);
+        onload = function(){
+            var headEle = document.getElementById("head");
+            var leftEle = document.getElementById("left");
+            var t;
+            headEle.onmouseover = function(){
+                clearTimeout(t);
+                leftEle.style.display = 'block';
             }
-            avatar.onmouseout = function(){
-                setTimeout(function(){
-                    if(!isIn) {
-                        info.style.display = "none";
-                    }
-                },1000);
+            headEle.onmouseout =  function(){
+                 t =setTimeout(function(){
+                     leftEle.style.display = 'none';
+                },500) 
             }
-            info.onmouseover = function(){
-                isIn = true;
-                info.style.display = "block";
+            leftEle.onmouseover = function(){
+                // 目的：保持 leftEle.style.display = 'block';
+                clearTimeout(t);
             }
-            info.onmouseout = function(){
-                isIn = false;
-                info.style.display = "none";
+            leftEle.onmouseout = function(){
+                 t =setTimeout(function(){
+                     leftEle.style.display = 'none';
+                },500) 
             }
-        };
-        */
+
+          
+
+        }
+      
+
     </script>
 </head>
 <body>
@@ -88,26 +89,26 @@
 </div>
 </body>
 <script>
-    var oHead = document.getElementById("head");
-    var oLeft = document.getElementById("left");
-    //var timer;
-    oHead.onmouseover = function () {
-        clearTimeout(oLeft.timer);
-        oLeft.style.display = "block";
-    }
-    oHead.onmouseout = function () {
-        oLeft.timer = setTimeout(function () {
-            oLeft.style.display = "none";
-        }, 1000);
-    }
-    oLeft.onmouseover = function () {
-        clearTimeout(this.timer);
-    }
-    oLeft.onmouseout = function () {
-        oLeft.timer = setTimeout(function () {
-            oLeft.style.display = "none";
-        }, 1000);
-    }
+    // var oHead = document.getElementById("head");
+    // var oLeft = document.getElementById("left");
+    // //var timer;
+    // oHead.onmouseover = function () {
+    //     clearTimeout(oLeft.timer);
+    //     oLeft.style.display = "block";
+    // }
+    // oHead.onmouseout = function () {
+    //     oLeft.timer = setTimeout(function () {
+    //         oLeft.style.display = "none";
+    //     }, 1000);
+    // }
+    // oLeft.onmouseover = function () {
+    //     clearTimeout(this.timer);
+    // }
+    // oLeft.onmouseout = function () {
+    //     oLeft.timer = setTimeout(function () {
+    //         oLeft.style.display = "none";
+    //     }, 1000);
+    // }
 
 </script>
 

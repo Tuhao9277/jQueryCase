@@ -1,0 +1,143 @@
+body{
+	font-family: PingFang-SC-Regular,Helvetica Neue,Helvetica,Droid Sans Fallback,microsoft yahei,sans-serif;
+}
+/* 第一屏 */
+.section{
+    text-align: center;
+}
+.section1 h2{
+
+    position: absolute;
+    width: 100%;
+    top: 3.3rem;
+    font-size: .36rem;
+    
+}
+.section1 .section1_p1{
+    position: absolute;
+    width: 100%;
+    top: 4.07rem;
+    font-size: .24rem;
+}
+.section1 .section1_p2{
+    position: absolute;
+    width: 100%;
+    top: 4.54rem;
+    font-size: .24rem;
+}
+.section1 .section1_div1{
+    position: absolute;
+    top: 6.4rem;
+    width: 7.2rem;
+    height: 3.6rem;
+    background: url(../img/page1_1.png) no-repeat top center;
+    background-size: 100%;
+}
+.section1 .section1_div2{
+    position: absolute;
+    top: 6.1rem;
+    left: 2.1rem;
+    width: 2.75rem;
+    height: 3.8rem;
+    background: url(../img/page1_2.png) no-repeat top center;
+    background-size: 100%;
+    z-index: 3;
+}
+.section1 .section1_div3{
+    position: absolute;
+    top: 5.85rem;
+    left:3.07rem;
+    width: 2.66rem;
+    height: 2.5rem;
+    background: url(../img/page1_3.png) no-repeat top center;
+    background-size: 100%;
+    z-index: 3;
+}
+.section2{
+    color: #fff;
+}
+.section2 h2,.section2 .section2_p1 ,.section2 .section2_p2 ,.section2 div{
+  
+    display: none;
+}
+.section2 h2{
+    position: absolute;
+    width: 100%;
+    font-size: .36rem;
+    top: 3.5rem;
+}
+.section2 .section2_p1{
+    position: absolute;
+    width: 100%;
+    top: 4.3rem;
+    font-size: .24rem;
+}
+.section2 .section2_p2{
+    position: absolute;
+    width: 100%;
+    top: 4.73rem;
+    font-size: .24rem;
+}
+.section2 div{
+    position: absolute;
+    width: 100%;
+    top: 5.94rem;
+    width: 100%;
+    height: 3.4rem;
+    background: url(../img/page2_1.png) no-repeat top center;
+    background-size: 3.08rem 3.4rem;
+}
+/* section3 */
+.section3 h2, .section3 p, .section3 div{
+	display: none;
+}
+.section3 h2{
+	position: absolute;
+	width: 100%;
+	font-size: .36rem;
+	top: 3.85rem;
+}
+.section3 p{
+	position: absolute;
+	width: 100%;
+	top: 4.54rem;
+	font-size: .24rem;
+}
+.section3 div{
+	position: absolute;
+    top: 5.62rem;
+    width: 100%;
+    height: 3.86rem;
+    background: url(../img/page3_1.png) no-repeat top center;
+    background-size: 4.09rem 3.86rem;
+}
+
+/* section4 */
+.section4{
+	color: #fff;
+}
+.section4 div, .section4 h2, .section4 p{
+	display: none;
+} 
+
+.section4 div{
+	position: absolute;
+	width: 100%;
+	height: 3.68rem;
+	background: url("../img/page4_1.png") no-repeat top center;
+	background-size: 3.69rem 3.68rem;
+	top: 3.56rem;
+}
+.section4 h2{
+	position: absolute;
+	width: 100%;
+	font-size: .36rem;
+	top: 7.77rem;
+}
+.section4 p{
+	position: absolute;
+	width: 100%;
+	font-size: .24rem;
+	top: 8.4rem;
+}
+

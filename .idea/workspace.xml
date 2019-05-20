@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea801d22-2afb-41d1-93ae-99eb8fdf156a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jQueryCase.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QQ延时提示框/qq.html" beforeDir="false" afterPath="$PROJECT_DIR$/QQ延时提示框/qq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/侧边栏分享.html" beforeDir="false" afterPath="$PROJECT_DIR$/侧边栏分享.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/图片淡出淡入.html" beforeDir="false" afterPath="$PROJECT_DIR$/图片淡出淡入.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/完美拖拽.html" beforeDir="false" afterPath="$PROJECT_DIR$/完美拖拽.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/放烟花效果.htm" beforeDir="false" afterPath="$PROJECT_DIR$/放烟花效果.htm" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,46 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/放烟花效果.htm">
+        <entry file="file://$PROJECT_DIR$/jQList/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="96" column="12" lean-forward="true" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/完美拖拽.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-49">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/淘宝注册验证码拖拽.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-92">
-              <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/零和游戏.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/QQ延时提示框/qq.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13">
-              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            <state relative-caret-position="101">
+              <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -83,10 +40,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="260" />
+    <option name="x" value="96" />
     <option name="y" value="22" />
     <option name="width" value="1366" />
-    <option name="height" value="699" />
+    <option name="height" value="703" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -100,6 +57,11 @@
             <path>
               <item name="jQueryCase" type="b2602c69:ProjectViewProjectNode" />
               <item name="jQueryCase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jQueryCase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jQueryCase" type="462c0819:PsiDirectoryNode" />
+              <item name="jQList" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -141,17 +103,18 @@
       <updated>1555371657921</updated>
       <workItem from="1555371662031" duration="309000" />
       <workItem from="1555373044057" duration="736000" />
+      <workItem from="1558141277297" duration="92000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1045000" />
+    <option name="totallyTimeSpent" value="1137000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="260" y="22" width="1366" height="699" extended-state="0" />
+    <frame x="96" y="22" width="1366" height="703" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16059479" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15687732" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -182,38 +145,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/放烟花效果.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="97" column="12" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/完美拖拽.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/淘宝注册验证码拖拽.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
+        <state relative-caret-position="966">
           <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/零和游戏.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
+        <state relative-caret-position="189">
           <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/QQ延时提示框/qq.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
+        <state relative-caret-position="63">
           <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/完美拖拽.html">
+    <entry file="file://$PROJECT_DIR$/jQList/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/放烟花效果.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="96" column="12" lean-forward="true" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
+        <state relative-caret-position="101">
+          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
         </state>
       </provider>
     </entry>
